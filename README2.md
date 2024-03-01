@@ -4,11 +4,11 @@ En esta documentación vamos a explicar el funcionamiento de la tienda de ropa, 
 
 ## Índice
 
--[Url donce está ubicada nuestra tienda](#URL-Tienda-de-ropa)
--[Funcionamiento de la tienda de ropa](#Funcionamiento-de-la-tienda-de-ropa)
--[Tecnologías usadas para crear esta tienda de ropa](#Tecnologias-usadas)
--[Endpoints utilizados para HTML](#Endpoints-html)
--[Endpoints utilizados para la API](#Endpoints-Api)
+- [Url donce está ubicada nuestra tienda](#URL-Tienda-de-ropa)
+- [Funcionamiento de la tienda de ropa](#Funcionamiento-de-la-tienda-de-ropa)
+- [Tecnologías usadas para crear esta tienda de ropa](#Tecnologias-usadas)
+- [Endpoints utilizados para HTML](#Endpoints-html)
+- [Endpoints utilizados para la API](#Endpoints-Api)
 
 ## URL Tienda de ropa
 Esta sería la URL donde está alojada la tienda: URL:http********
@@ -17,18 +17,18 @@ Esta sería la URL donde está alojada la tienda: URL:http********
 
 Una vez que se accede a la url de la web, lo primero que nos vamos ha econtrar es una web con una barra de navegación, la cual consta de las siguientes categorías:
 
--[Productos](#Categoría-Productos)
--[Camisetas](#Categoría-Camisetas)
--[Pantalones](#Categoría-Pantalones)
--[Zapatos](#Categoría-Zapatos)
--[Accesorios](#Categoría-Accesorios)
--[login](#Login)
--[La web Logeado](#La-web-Logeado)
--[Logeado Productos](#Logeado-Productos)
--[Botón Actualizar](#Botón-Actualizar)
--[Botón Eliminar](#Botón-Eliminar)
--[Opcion de crear nuevo producto](#Opción-de-crear-nuevo-producto)
--[Opción Logout](#Opción-Logout)
+- [Productos](#Categoría-Productos)
+- [Camisetas](#Categoría-Camisetas)
+- [Pantalones](#Categoría-Pantalones)
+- [Zapatos](#Categoría-Zapatos)
+- [Accesorios](#Categoría-Accesorios)
+- [login](#Login)
+- [La web Logeado](#La-web-Logeado)
+- [Logeado Productos](#Logeado-Productos)
+- [Botón Actualizar](#Botón-Actualizar)
+- [Botón Eliminar](#Botón-Eliminar)
+- [Opcion de crear nuevo producto](#Opción-de-crear-nuevo-producto)
+- [Opción Logout](#Opción-Logout)
 
 ### Categoría Productos
 
@@ -84,19 +84,19 @@ Una clicado esta opción, simplemente cerrará la sesón del usuario que estemos
 
 Estas son las tecnologías o recursos utilizados para nuestra web.
 
--[Express](#Epress)
--[Mongoose](#Mongoose)
--[Atlas](#Atlas)
--[Fl0](#Fl0)
--[dotenv](#dotenv)
--[express-session](#express-session)
--[express.urlencoded](#express.urlencoded)
--[express.static](#express.static)
--[Template literals](#Template-literals)
--[Pug](#Pug)
--[Firebase](#firebase)
-  -[Firebase Auth](#firebase-Auth)
-  -[Get Started with Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start)
+- [Express](#Epress)
+- [Mongoose](#Mongoose)
+- [Atlas](#Atlas)
+- [Fl0](#Fl0)
+- [dotenv](#dotenv)
+- [express-session](#express-session)
+- [express.urlencoded](#express.urlencoded)
+- [express.static](#express.static)
+- [Template literals](#Template-literals)
+- [Pug](#Pug)
+- [Firebase](#firebase)
+  - [Firebase Auth](#firebase-Auth)
+  - [Get Started with Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start)
 
 ### Express
 
