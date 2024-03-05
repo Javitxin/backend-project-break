@@ -22,6 +22,22 @@ router.post('/dashboard/:productId', ProductController.updateProduct);
 router.get('/dashboard/:productId/delete', ProductController.deleteProduct);
 router.get('/logout', ProductController.logout)
 
+/* Rutas para la API */
 
+// Mostrar todos los productos 
+
+router.get('/api/products', ProductController.showProductsAPI);
+
+// Crear un nuevo producto
+
+router.post('/api/dashboard', ProductController.createProductAPI);
+
+// Actualizar producto
+
+router.put('/api/dashboard/:productId', ProductController.updateProductApi);
+
+// Eliminar producto
+
+router.delete('/api/dashboard/:productId/delete', ProductController.deleteProductApi);
 
 module.exports = router;

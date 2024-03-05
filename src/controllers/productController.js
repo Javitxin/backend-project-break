@@ -310,7 +310,72 @@ const ProductController = {
     async logout(req, res) {
         token = false;
         res.redirect('/products')
+    },
+    /* Product Controller API */
+
+    // Obtener todos los productos
+
+    async showProductsAPI(req, res) {
+        try {
+            const products = await Product.find();
+            res.json(products);
+
+        } catch (error) {
+            res.status(500).json({ error: 'Servidor no encontrado' });
+        }
+    },
+
+    // Crear un nuevo producto
+
+    async createProductApi(req, res) {
+        try {
+            const product = await Product.create({ ...req.body });
+            res.status(201).json({ mensaje: 'Nuevo producto creado' + product });
+
+        } catch (error) {
+            res.status(500).json({ mensaje: 'servidor no encontrado' });
+        }
+    },
+
+    // actualizar producto
+
+    async updateProductApi(req, res) {
+        try {
+            const idProduct = req.params.productId;
+            const pBody = req.body
+            const updateProduct = await Product.findByIdAndUpdate(
+                idProduct, {
+                name: pBody.name,
+                description: pBody.description,
+                category: pBody.category,
+                price: pBody.price,
+                image: pBody.image,
+                size: pBody.size
+            }, { new: true })
+            res.json({ mensaje: ' Producto actualizado ' + updateProduct });
+
+
+        } catch (error) {
+            res.status(500).json({ mensaje: 'producto no encontrado' });
+
+        }
+    },
+
+    // Eliminar producto
+
+    async deleteProductApi(req, res) {
+        try {
+            const idProduct = req.params.productId;
+            const deletedProduct = await Product.findByIdAndDelete(idProduct)
+            res.json({ mensaje: 'Producto eliminado' + deletedProduct });
+
+        } catch (error) {
+            res.status(500).json({ mensaje: 'Producto no eliminado' });
+
+        }
     }
+
+
 }
 
 
