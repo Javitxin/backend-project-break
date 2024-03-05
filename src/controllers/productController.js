@@ -327,7 +327,7 @@ const ProductController = {
 
     // Crear un nuevo producto
 
-    async createProductApi(req, res) {
+    async createProductAPI(req, res) {
         try {
             const product = await Product.create({ ...req.body });
             res.status(201).json({ mensaje: 'Nuevo producto creado' + product });
@@ -339,7 +339,7 @@ const ProductController = {
 
     // actualizar producto
 
-    async updateProductApi(req, res) {
+    async updateProductAPI(req, res) {
         try {
             const idProduct = req.params.productId;
             const pBody = req.body
@@ -363,7 +363,7 @@ const ProductController = {
 
     // Eliminar producto
 
-    async deleteProductApi(req, res) {
+    async deleteProductAPI(req, res) {
         try {
             const idProduct = req.params.productId;
             const deletedProduct = await Product.findByIdAndDelete(idProduct)

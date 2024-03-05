@@ -2,6 +2,8 @@ const express = require('express');
 const dbConnection = require('./src/config/db.js');
 const app = express();
 const path = require('node:path');
+const swaggerUI = require('swagger-ui-express');
+const docs = require('./docs/index.js');
 
 require('dotenv').config();
 
@@ -15,6 +17,8 @@ app.use('/', router);
 
 const publicPath = path.resolve(__dirname, 'public')
 app.use(express.static(publicPath));
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs));
 
 dbConnection()
 

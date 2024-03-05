@@ -27,12 +27,12 @@ module.exports = {
                     category: {
                         type: 'string',
                         description: 'Product category',
-                        example: 'Camisetas, Pantalones, Zapatos, Accesorios'
+                        example: 'Camisetas'
                     },
                     size: {
                         type: 'string',
                         description: 'Product size',
-                        example: 'Xl, L, M, S'
+                        example: 'S'
                     },
                     price: {
                         type: 'string',

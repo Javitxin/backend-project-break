@@ -34,10 +34,10 @@ router.post('/api/dashboard', ProductController.createProductAPI);
 
 // Actualizar producto
 
-router.put('/api/dashboard/:productId', ProductController.updateProductApi);
+router.put('/api/dashboard/:productId', ProductController.updateProductAPI);
 
 // Eliminar producto
 
-router.delete('/api/dashboard/:productId/delete', ProductController.deleteProductApi);
+router.delete('/api/dashboard/:productId', ProductController.deleteProductAPI);
 
 module.exports = router;

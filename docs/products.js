@@ -37,7 +37,7 @@ module.exports = {
                     content: {
                         'application/json': {
                             schema: {
-                                $ref: '#/components/schemas/ProductsPost',
+                                $ref: '#/components/schemas/ProductPost',
                             },
                         },
                     },
@@ -51,13 +51,13 @@ module.exports = {
                     },
                 },
             },
-        }, 'api/dashboard/{_id}'{
+        }, '/api/dashboard/{_id}': {
             put: {
                 tags: {
                     Tasks: 'Actualizar un producto en API',
                 },
                 description: 'Actualizar un producto en API',
-                operationId: 'updateProductApi',
+                operationId: 'updateProductAPI',
                 parameters: [
                     {
                         name: '_id',
@@ -72,7 +72,7 @@ module.exports = {
                     content: {
                         'application/json': {
                             schema: {
-                                #ref: '#components/schema/ProductPut'
+                                $ref: '#/components/schemas/ProductPut'
                             },
                         },
                     },
@@ -86,12 +86,13 @@ module.exports = {
                     },
                 },
             },
+
             delete: {
                 tags: {
                     Taks: 'Eliminar Producto',
                 },
                 description: 'Eliminar producto',
-                operationId: 'deleteProductApi',
+                operationId: 'deleteProductAPI',
                 parameters: [
                     {
                         name: '_id',
