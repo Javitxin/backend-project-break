@@ -212,7 +212,9 @@ Firebase Authentication proporciona servicios de backend, SDK fáciles de usar y
 
 Para más información (https://firebase.google.com/)
 
-
+Este apartado consiste en una vez pulsado la opción  login de la barra de navegación, aparece un formulario para poder ingresar o registrarse en la web.
+La opción de registrarse creará un usuario nuevo con el email y contraseña en la bd de firebase-Auth y una vez creado podrá ingresar en la web con ese usuario y acceder a las opciones de crear, modificar y eliminar productos. 
+En este apartado se comprueba que el usuario este registrado previamente para poder acceder a la web.
 
 ## Endpoints html
 
