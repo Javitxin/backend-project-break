@@ -406,10 +406,9 @@ const ProductController = {
     async logout(req, res) {
         req.session.destroy();
         res.redirect('/')
-    }
-        token = false;
-        res.redirect('/products')
+
     },
+       
     /* Product Controller API */
 
     // Obtener todos los productos
