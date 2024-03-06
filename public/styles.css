@@ -229,3 +229,13 @@ select {
     border: none;
     width: 100px;
 }
+
+.register{
+    padding: 7px;
+    background-color: #1239ff;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    font-size: 12px;
+}

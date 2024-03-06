@@ -335,7 +335,7 @@ const ProductController = {
                 <input type="password" id="password" name="password" required>
                 <div class="botonesform">    
                     <button  class="boton" type="submit">Ingresar</button>
-                    <a href="/register" class="boton">Registrarse</a>
+                    <a href="/register" class="register">Registrarse</a>
                 </div>         
             </form>
                       
@@ -370,7 +370,6 @@ const ProductController = {
             const {email, password} = req.body; 
             const auth = getAuth(fireBaseApp);   
             const user = await signIn(auth, email, password);         
-            console.log(user.uid);
             if(user){
                 const token = generateToken(user);
                 req.session.token = token;
