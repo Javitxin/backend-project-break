@@ -1,111 +1,222 @@
 # Tienda de ropa
 
-Vamos a montar una tienda de ropa con un catálogo de productos y un dashboard para el administrador. Los productos se guardarán en una base de datos de mongo en Atlas. Podemos usar como referencia el pdf [web_ejemplo.pdf](web_ejemplo.pdf) que contiene un ejemplo de cómo podría ser la interfaz de la tienda y el dashboard.
+En esta documentación vamos a explicar el funcionamiento de la tienda de ropa, las tecnologías usadas, endpoints, etc.
 
 ## Índice
 
-  - [Estructura de archivos](#estructura-de-archivos)
-  - [Creación de base de datos](#creación-de-base-de-datos)
-  - [Creación del servidor](#creación-del-servidor)
-  - [Creación de modelos](#creación-de-modelos)
-  - [Creación de rutas](#creación-de-rutas)
-  - [Creación de controladores](#creación-de-controladores)
-  - [Despliegue](#despliegue)
-  - [Documentación](#documentación)
-  - [Bonus 1 - Tests](#bonus-1---tests)
-  - [Bonus 2 - Autenticación con Firebase](#bonus-2---autenticación-con-firebase)
-  - [Bonus 3 - API y documentación con Swagger](#bonus-3---api-y-documentación-con-swagger)
-  - [Recursos](#recursos)
+- [Url donce está ubicada nuestra tienda](#URL-Tienda-de-ropa)
+- [Funcionamiento de la tienda de ropa](#Funcionamiento-de-la-tienda-de-ropa)
+- [Tecnologías usadas para crear esta tienda de ropa](#Tecnologias-usadas)
+- [Endpoints utilizados para HTML](#Endpoints-html)
+- [Endpoints utilizados para la API-Swagger](#Endpoints-Api-Sawgger)
 
-## Estructura de archivos
+## URL Tienda de ropa
+Esta sería la URL donde está alojada la tienda: URL:(https://backend-project-break-dev-fsfg.2.ie-1.fl0.io)
 
-Vamos a crear la estructura de archivos que vamos a necesitar para el proyecto. 
+## Funcionamiento de la tienda de ropa
+
+Una vez que se accede a la url de la web, lo primero que nos vamos ha econtrar es una web con una barra de navegación, la cual consta de las siguientes categorías:
+
+- [Productos](#Categoría-Productos)
+- [Camisetas](#Categoría-Camisetas)
+- [Pantalones](#Categoría-Pantalones)
+- [Zapatos](#Categoría-Zapatos)
+- [Accesorios](#Categoría-Accesorios)
+- [login](#Login)
+- [La web Logeado](#La-web-Logeado)
+- [Logeado Productos](#Logeado-Productos)
+- [Botón Actualizar](#Botón-Actualizar)
+- [Botón Eliminar](#Botón-Eliminar)
+- [Opcion de crear nuevo producto](#Opción-de-crear-nuevo-producto)
+- [Opción Logout](#Opción-Logout)
+
+### Categoría Productos
+
+En este apartado de la web, nos muestra todos los productos que existen en la web, cada producto tiene un botón para porde ver una vista detalle del producto en cuestión.
+
+### Categoría Camisetas
+
+En este apartado de la web, nos muestra solo los productos por camisetas que existan en nuestra web, también con su botón para acceder a su vista detalle.
+
+### Categoría Pantalones
+
+En este apartado de la web, nos muestra solo los productos por pantalones que existan en nuestra web, también su botón para acceder a su vista detalle.
+
+### Categoría Zapatos
+
+En este apartado de la web, nos muestra solo los productos por zapatos que existan en nuestra web, también su botón para acceder a su vista detalle.
+
+### Categoría Accesorios
+
+En este apartado de la web, nos muestra solo los productos por accesorios que existan en nuestra web, también su botón para acceder a su vista detalle.
+
+#### Login
+
+En este apartado tienes la opción de logearte en la web para poder acceder a ella con las funciones de administrador y así poder utilizar todas las opciones de Crear, buscar, modificar y borrar los artículos de la tienda.
+
+#### La web Logeado
+
+Cuando cliques en la opción de login, te saldrá una pantalla donde deberas introducir tu Usuário y contraseña de administrador de la web, esa pantalla comprueba que la información sea correcta, para poder entrar como administrador.
+Una vez logeado te aparece una web con una barra de navegación arriba con; Productos, Camisetas, Pantalones, Zapatos, Accesorios, Nuevo  Producto y Logout.
+
+#### Logeado Productos
+A simple vista lo que se muestra es lo mismo que en la opción de inicio de productos pero una vez que presionas el botón Ver detalle, nos muestra una vista detalle del producto con dos botones más, botón Actualizar y Botón Eliminar.
+
+#### Botón Actualizar
+
+Una vez presionado este botón, nos muestra una web con la misma barra de navegación que cuando estás logeado y como cuerpo principal de la web un formulario de actualización del producto en cuestión con la información de ese producto y un botón de actualizar, uan vez hechos los cambios pertinentes en dicho producto al pinchar en el botón actualizar no vuelve a mostrar el producto en cuestión con su modificación ya realizada.
+Esto es aplicable  a todas las categorías de la web pantalones, camisetas, zapatos, accesorios.
+
+
+#### Botón Eliminar
+
+Una vez pulsado el botón de eleminar, nos mostrará un mensaje el cual no dice que el producto se ha eliminado correctamente. Esto es aplicable  a todas las categorías de la web pantalones, camisetas, zapatos, accesorios.
+
+#### Opción de crear nuevo producto
+
+Una vez de clicar en la opción de la barra de menus, Nuevo Producto, nos aparece una web cd crear producto con todos los campos para crear dicho producto y un botón de enviar, una vez que se han rellenado todos los campos del nuevo producto, al presionar el botón de enviar, nos redirecciona a la web principal donde nos muestra todos los productos incluido el nuevo producto.
+
+#### Opción Logout
+
+Una clicado esta opción, simplemente cerrará la sesón del usuario que estemos usando y nos llevará a la pagina principal de la web que es solo de consulta.
+
+## Tecnologias usadas
+
+Estas son las tecnologías o recursos utilizados para nuestra web.
+
+- [Express](#Epress)
+- [Mongoose](#Mongoose)
+- [Atlas](#Atlas)
+- [Fl0](#Fl0)
+- [dotenv](#dotenv)
+- [express-session](#express-session)
+- [express.urlencoded](#express.urlencoded)
+- [express.static](#express.static)
+- [Template literals](#Template-literals)
+- [Pug](#Pug)
+- [Firebase](#firebase)
+  - [Firebase Auth](#firebase-Auth)
+  - [Get Started with Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start)
+
+### Express
+
+Qué es Epress.js:
+
+Express.js es el framework backend más popular para Node.js y es una parte extensa del ecosistema JavaScript.
+
+Instalación de Express:
 
 ```
-.
-├── src
-│   ├── config
-│   │   ├── db.js
-│   │   └── firebase.js (BONUS)
-│   ├── controllers
-│   │   ├── productController.js
-│   │   └──authController.js (BONUS)
-│   ├── models
-│   │   └── Product.js
-│   ├── routes
-│   │   └── productRoutes.js
-│   │   └── authRoutes.js (BONUS)
-│   ├── middlewares (BONUS)
-│   │   └── authMiddleware.js
-│   └── index.js
-├── test (BONUS)
-│   └── productController.test.js
-├── public
-│   ├── styles.css
-│   └── images (OPCIONAL)
-├── .env
-└── package.json
+npm install express --save
+```
+Para más informacion de express(https://expressjs.com/)
+
+### Mongoose
+
+Qué es Mongoose:
+
+Mongoose es una librería para Node.js que nos permite escribir consultas para una base de datos de MongooDB, con características como validaciones, construción de queries, middlewares, conversión de tipos y algunas otras, que enriquecen la funcionalidad de la base de datos.
+
+Instalación Mongoose:
 
 ```
-
-### Características de los archivos
-
-- `config/db.js`: Archivo que contendrá la configuración de la base de datos. Deberá conectarse a la base de datos de mongo en Atlas.
-- `controllers/productController.js`: Archivo que contendrá la lógica para manejar las solicitudes CRUD de los productos. Devolverá las respuestas en formato HTML.
-- `models/Product.js`: Archivo que contendrá la definición del esquema del producto utilizando Mongoose.
-- `routes/productRoutes.js`: Archivo que contendrá la definición de las rutas CRUD para los productos. Este llama a los métodos del controlador.
-- `index.js`: Archivo principal que iniciará el servidor Express. Importa las rutas y las usa. También tiene que estar configurado para servir archivos estáticos y para leer el body de las peticiones de formularios.
-- `public/styles.css`: Archivo que contendrá los estilos de la aplicación (recomendable).
-- `public/images`: Carpeta que contendrá las imágenes de los productos (opcional).Se puede evitar si se usan urls externas para las imágenes.
-- `.env`: Archivo que contendrá las variables de entorno. En este caso, la uri de la base de datos de Atlas o el puerto de la aplicación. Más adelante añadiremos más variables de entorno, como la palabra secreta para la sesión.
-- `package.json`: Archivo que contendrá las dependencias del proyecto. Crearemos un script para iniciar el servidor con node y otro para iniciar el servidor con nodemon.("start": "node src/index.js", "dev": "nodemon src/index.js").
-
-**BONUS**
-- `config/firebase.js`: Archivo que contendrá la configuración de firebase. Deberá inicializar la conexión con firebase.
-- `controllers/authController.js`: Archivo que contendrá la lógica para manejar las solicitudes de autenticación. Devolverá las respuestas en formato HTML.
-- `routes/authRoutes.js`: Archivo que contendrá la definición de las rutas para la autenticación. Este llama a los métodos del controlador.
-- `middlewares/authMiddleware.js`: Archivo que contendrá el middleware para comprobar si el usuario está autenticado. Este buscará la sesión del usuario y, si no la encuentra, redirigirá al formulario de login.
-
-## Creacíon de base de datos
-
-Vamos a crear la base de datos en Atlas. Creamos un nuevo proyecto y lo desplegamos.
-
-Una vez creada la base de datos, copiamos la uri y la guardamos en el archivo .env 
+npm install mongoose --save
 ```
-MONGO_URI=<uri_bd_atlas>
+Para más información de mongoose (https://mongoosejs.com/)
+
+### Atlas
+
+Qué es Atlas:
+
+La base de datos nativa de la nube: la forma más sencilla de implementar, operar y  ewscalar MongoDB en la nube.
+Para más información (https://www.mongodb.com/cloud/atlas)
+
+### Fl0
+
+Qué es Fl0:
+
+Herramienta de despliege de aplicaciones y bases de datos.
+Para más información (https://www.fl0.io/)
+
+### dotenv
+Qué es dotenv:
+
+Dotenv es un módulo de dependencia cero que carga las variables de entorno desde un archivo .env en process. env.
+
+Instalación de dotenv:
+
 ```
+npm install dotenv --save
+```
+Para más información (https://www.npmjs.com/package/dotenv)
 
-## Creación del servidor
+### express-session
 
-Vamos a crear el servidor con express. El servidor devolverá las vistas usando template literals. Para interfaces más complejas, se podría usar un motor de plantillas como pug. También necesitaremos leer el body de las peticiones tipo post. Como trabajaremos con formularios html, necesitaremos el middleware `express.urlencoded` para leer el body de las peticiones.
+Qué es express-session:
 
-Para poder añadir estilos, imágenes, etc. necesitaremos el middleware `express.static` para servir archivos estáticos. En nuestro caso, serviremos los archivos estáticos desde la carpeta `public`.
+El middleware express-session almacena los datos de sesión en el servidor; sólo guarda el ID de sesión en la propia cookie, no los datos de sesión.
 
-El puerto en el que escuchará el servidor lo cargaremos desde el archivo .env usando `dotenv`.
+Instalación de express-session:
+
+```
+npm install express-session
+```
+Para más información (https://www.npmjs.com/package/express-session)
+
+### express.urlencoded
+
+Qué es express.urlencoded:
+
+Actúa como middleware al procesar los datos enviados desde el cliente al servidor a través de formularios HTML o solicitudes POST.
+Para más información (https://expressjs.com/en/api.html#express.urlencoded)
+
+### express.static
+
+Qué es express.static:
+
+Esta función de middleware le permite al servidor acceder a un directorio público donde se almacenan los recursos estáticos.
+Para más información (https://expressjs.com/en/api.html#express.static)
+
+### Template-literals
+
+Qué es Template-literals:
+
+Cadenas literales que habilitan el uso de expresiones incrustadas. Con ellas, es posible utilizar cadenas de caracteres de más de una línea, y funcionalidades de interpolación de cadenas de caracteres.
+Para más información (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
+### Pug
+
+Qué es Pug:
+
+Es un motor de plantillas de NodeJS que nos permite preprocesar código HTML de una manera más rápida y sencilla. 
+
+Instalación de Pug.
+```
+npm install pug
+```
+Para más información (https://pugjs.org/api/getting-started.html)
+
+### firebase
+
+Qué es firebase.
+
+Firebase es una plataforma de desarrollo de apps que te ayuda a desarrollar y crecer las applicaciones y juegos favoritos de los usuarios. Con el respaldo de Google.
+
+Para más información (https://firebase.google.com/)
+
+#### firebase-Auth
+
+Qué es firebase-Auth:
+
+Firebase Authentication proporciona servicios de backend, SDK fáciles de usar y bibliotecas de IU ya elaboradas para autenticar a los usuarios en tu app.
+
+Para más información (https://firebase.google.com/)
 
 
-Creamos el archivo `index.js` en la carpeta `src` y añadimos el código necesario para crear el servidor. 
 
-## Creación de modelo
+## Endpoints html
 
-Vamos a crear el modelo de producto. El modelo de producto tendrá los siguientes campos:
-
-- Nombre
-- Descripción
-- Imagen
-- Categoría
-- Talla
-- Precio
-
-La categoría será un string que podrá ser "Camisetas", "Pantalones", "Zapatos", "Accesorios".
-
-La talla será un string que podrá ser "XS", "S", "M", "L", "XL".
-
-
-## Creación de rutas
-
-Vamos a crear las rutas CRUD para los productos. Al usar formularios html, las rutas serán de tipo GET y POST.
- Las rutas deberían tener una estructura similar a esta:
+Al usar formularios html, las rutas serán de tipo GET y POST.
 
 - GET /products: Devuelve todos los productos. Cada producto tendrá un enlace a su página de detalle.
 - GET /products/:productId: Devuelve el detalle de un producto.
@@ -114,107 +225,20 @@ Vamos a crear las rutas CRUD para los productos. Al usar formularios html, las r
 - POST /dashboard: Crea un nuevo producto.
 - GET /dashboard/:productId: Devuelve el detalle de un producto en el dashboard.
 - GET /dashboard/:productId/edit: Devuelve el formulario para editar un producto.
-- PUT /dashboard/:productId: Actualiza un producto.
-- DELETE /dashboard/:productId/delete: Elimina un producto.
+- POST /dashboard/:productId: Actualiza un producto.
+- GET /dashboard/:productId/delete: Elimina un producto.
 
-## Creación de controladores
+## Endpoints Api Swagger
 
-A continuación crearemos el controlador de productos. Este controlador se dedicará a manejar las solicitudes CRUD de los productos. Devolverá las respuestas en formato HTML.
-Para ello, crearemos algunas funciones auxiliares que nos ayudarán a devolver las vistas con SSR.
+Que es Swagger:
 
-Las funciones principales del controlador serán:
+Cuando hablamos de Swagger nos referimos a una serie de reglas, especificaciones y herramientas que nos ayudan a documentar nuestras APIs. De esta manera, podemos realizar documentación que sea realmente útil para las personas que la necesitan. Swagger nos ayuda a crear documentación que todo el mundo entienda.
 
-- showProducts: Devuelve la vista con todos los productos.
-- showProductById: Devuelve la vista con el detalle de un producto.
-- showNewProduct: Devuelve la vista con el formulario para subir un artículo nuevo.
-- createProduct: Crea un nuevo producto. Una vez creado, redirige a la vista de detalle del producto o a la vista de todos los productos del dashboard.
-- showEditProduct: Devuelve la vista con el formulario para editar un producto.
-- updateProduct: Actualiza un producto. Una vez actualizado, redirige a la vista de detalle del producto o a la vista de todos los productos del dashboard.
-- deleteProduct: Elimina un producto. Una vez eliminado, redirige a la vista de todos los productos del dashboard.
+Para más información: (https://swagger.io/)
 
-Las funciones showProducts y showProductById pueden devolver respuestas ligeramente distintas si se llega desde el dashboard o desde la vista principal. Por ejemplo, si se llega desde el dashboard, se mostrará un enlace para editar o eliminar el producto. Para ello podemos utilizar la url de la petición o pasar al controlador un parámetro extra que indique si se llega desde el dashboard o no.
+Url del endpoints Api-Swagger: (https://backend-project-break-dev-fsfg.2.ie-1.fl0.io/api-docs/)
 
-Para generar el html de forma más eficiente y sacarlo de la lógica, podemos crear funciones y variables auxiliares que generen el html de los productos y del formulario.
-Por ejemplo:
-- baseHtml: html común a todas las páginas. Puede contener elementos como la importación de estilos, etc.
-- getNavBar: Genera la barra de navegación con las categorías. En caso de estar en el dashboard, también generará un enlace para subir un nuevo producto.
-- getProductCards: Genera el html de los productos. Recibe un array de productos y devuelve el html de las tarjetas de los productos.
-- ...
-
-Un ejemplo de una función para generar el html de los productos podría ser:
-
-```javascript
-function getProductCards(products) {
-  let html = '';
-  for (let product of products) {
-    html += `
-      <div class="product-card">
-        <img src="${product.image}" alt="${product.name}">
-        <h2>${product.name}</h2>
-        <p>${product.description}</p>
-        <p>${product.price}€</p>
-        <a href="/products/${product._id}">Ver detalle</a>
-      </div>
-    `;
-  }
-  return html;
-}
-```
-
-Con estas funciones auxiliares, el controlador será más limpio y fácil de entender.
-Ejemplo:
-
-```javascript
-
-const showProducts = async (req, res) => {
-  const products = await Product.find();
-  const productCards = getProductCards(products);
-  const html = baseHtml + getNavBar() + productCards;
-  res.send(html);
-};
-    
-```
-
-## Despliegue
-
-Creamos un nuevo proyecto en fl0 y desplegamos el proyecto desde github. Recordad añadir las variables de entorno en fl0. Si no aparece el repositorio en fl0, tendremos que modificar los permisos de fl0 para que pueda acceder al repositorio.
-
-## Documentación
-
-Crearemos un archivo `README.md` que contenga la documentación del proyecto. En este readme explicaremos cómo poner en marcha la aplicación, las tecnologías que hemos usado, endpoints, etc.
-
-## Bonus 1 - Tests
-
-Para poder comprobar que el controlador de productos funciona correctamente, vamos a crear tests para las funciones. Para ello, necesitaremos instalar el paquete `jest` y crear el archivo `productController.test.js` en la carpeta `test`. En este archivo, importaremos el controlador y crearemos los tests. Podemos hacer tests tanto para las funciones que devuelven html como para las funciones que crean, actualizan o eliminan productos.
-
-## Bonus 2 - API y documentación con Swagger
-
-Para poder usar la aplicación con un frontend en React, vamos a crear una API que haga las mismas operaciones que el controlador de productos, pero que devuelva los datos en formato JSON. Documentaremos la API con Swagger, para que sea más fácil de entender y usar.
-
-## Bonus 3 - Autenticación con Firebase
-
-Vamos a crear un login y pass para el administrador con firebase. Para ello, necesitaremos instalar los paquetes `firebase` y `express-session` y configurar el proyecto en firebase. Podemos ver la guía de cómo hacerlo en el pdf [firebase.pdf](firebase.pdf).
-
-Una vez configurado el proyecto en firebase, podremos crear un formulario de login. Este formulario enviará las credenciales a un endpoint que comprobará si son correctas. Si son correctas, redirigirá al dashboard. Si no, mostrará un mensaje de error. También tendremos una página de registro, a la que se podrá acceder desde el formulario de login. Además, tendremos que crear un archivo `firebase.js` que inicialice la conexión con firebase y que contenga las funciones para comprobar si las credenciales son correctas y para cerrar la sesión.
-
-Para comprobar si las credenciales son correctas, necesitaremos el middleware `express-session` para guardar la sesión del usuario. Tendremos que modificar el archivo index.js para que inicialice el middleware y lo use en las rutas del dashboard. También tendremos que añadir una palabra secreta para la sesión en el archivo .env y crear un archivo `middlewares/authMiddleware.js` que contenga el middleware para comprobar si el usuario está autenticado. Este buscará la sesión del usuario y, si no la encuentra, redirigirá al formulario de login.
-
-
-
-## Recursos
-
-- [Express](https://expressjs.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [Atlas](https://www.mongodb.com/cloud/atlas)
-- [Fl0](https://fl0.io/)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [express-session](https://www.npmjs.com/package/express-session)
-- [express.urlencoded](https://expressjs.com/en/api.html#express.urlencoded)
-- [express.static](https://expressjs.com/en/api.html#express.static)
-- [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-- [Pug](https://pugjs.org/api/getting-started.html)
-- [Firebase](https://firebase.google.com/)
-  - [Firebase Auth](https://firebase.google.com/docs/auth)
-  - [Get Started with Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start)
-
-
+- GET /api/products: Devuelve todos los productos. Cada producto tendrá un enlace a su página de detalle.
+- POST /api/dashboard: Crea un nuevo producto.
+- PUT /api/dashboard/:productId: Actualiza un producto.
+- DELETE /api/dashboard/:productId/: Elimina un producto.
