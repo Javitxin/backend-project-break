@@ -13,6 +13,8 @@ const {hashedSecret} = require('./src/config/configcryp.js')
 const PORT = process.env.PORT || 3000
 const router = require('./src/routes/productRoutes.js');
 
+const publicPath = path.resolve(__dirname, 'public')
+
 
 app.use(cors());
 app.use(express.json());
@@ -23,13 +25,12 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie:{secure:false},
-}))
+}));
 
 
 app.use('/', router);
 
 
-const publicPath = path.resolve(__dirname, 'public')
 app.use(express.static(publicPath));
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs));

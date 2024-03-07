@@ -19,15 +19,6 @@ const firebaseConfig = {
 const fireBaseApp = initializeApp(firebaseConfig);
 
 module.exports = fireBaseApp;
-/*
-const admin = require('firebase-admin');
-const {initializeApp, applicationDefault} = require('firebase-admin/app');
 
-
-const fireBaseApp = admin.initializeApp({
-  credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS)
-})
-module.exports = fireBaseApp
-*/
 
 

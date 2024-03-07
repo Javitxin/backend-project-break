@@ -210,64 +210,63 @@ const ProductController = {
         try {
             const token = req.session.token;
             if (token){
-            const idProduct = req.params.productId;
-            const product = await Product.findById(idProduct);
+                const idProduct = req.params.productId;
+                const product = await Product.findById(idProduct);
 
-            const form = `
-                <h2>Actualizar producto</h2>
-                <div class="formContainer">                
-                <form class="formulario" action="/dashboard/${idProduct}" method="post">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name"   value="${product.name}">
+                const form = `
+                    <h2>Actualizar producto</h2>
+                    <div class="formContainer">                
+                    <form class="formulario" action="/dashboard/${idProduct}" method="post">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name"   value="${product.name}">
 
-                    <label for="description">Descripción</label>
-                    <input type="text" id="description" name="description"  value="${product.description}">
+                        <label for="description">Descripción</label>
+                        <input type="text" id="description" name="description"  value="${product.description}">
 
-                    <label for="price">Precio</label>
-                    <input type="number" id="price" name="price" value="${product.price}">
+                        <label for="price">Precio</label>
+                        <input type="number" id="price" name="price" value="${product.price}">
 
-                    <label for="image">Imagen</label>
-                    <input type="url" id="image" name="image"  value="${product.image}">
+                        <label for="image">Imagen</label>
+                        <input type="url" id="image" name="image"  value="${product.image}">
 
-                    <div class="formcategory">
-                    <p>Categoria:<p>
-                        <input type="radio" id="category" name="category" value="camisetas">
-                        <label for="category">Camisetas</label>
+                        <div class="formcategory">
+                        <p>Categoria:<p>
+                            <input type="radio" id="category" name="category" value="camisetas">
+                            <label for="category">Camisetas</label>
 
-                        <input type="radio" id="category" name="category" value="zapatos">
-                        <label for="category">Zapatos</label>
+                            <input type="radio" id="category" name="category" value="zapatos">
+                            <label for="category">Zapatos</label>
 
-                        <input type="radio" id="category" name="category" value="pantalones">
-                        <label for="category">Pantalones</label>
+                            <input type="radio" id="category" name="category" value="pantalones">
+                            <label for="category">Pantalones</label>
 
-                        <input type="radio" id="category" name="category" value="accesorios">
-                        <label for="category">Accesorios</label>
-                        </div>
-                    <div class="formcategory">
-                    <p>Tallas:<p>
-                        <input type="radio" id="category" name="size" value="xs">
-                        <label for="category">XS</label>
+                            <input type="radio" id="category" name="category" value="accesorios">
+                            <label for="category">Accesorios</label>
+                            </div>
+                        <div class="formcategory">
+                        <p>Tallas:<p>
+                            <input type="radio" id="category" name="size" value="xs">
+                            <label for="category">XS</label>
 
-                        <input type="radio" id="category" name="size" value="s">
-                        <label for="category">S</label>
+                            <input type="radio" id="category" name="size" value="s">
+                            <label for="category">S</label>
 
-                        <input type="radio" id="category" name="size" value="m">
-                        <label for="category">M</label>
+                            <input type="radio" id="category" name="size" value="m">
+                            <label for="category">M</label>
 
-                        <input type="radio" id="category" name="size" value="l">
-                        <label for="category">L</label>
+                            <input type="radio" id="category" name="size" value="l">
+                            <label for="category">L</label>
 
-                        <input type="radio" id="category" name="size" value="xl">
-                        <label for="category">XL</label>
-                        </div>
-                    <button  class="boton" type="submit">Actualizar</button>
-                </form>
-                </div>                    
-            
-            `;
+                            <input type="radio" id="category" name="size" value="xl">
+                            <label for="category">XL</label>
+                            </div>
+                        <button  class="boton" type="submit">Actualizar</button>
+                    </form>
+                    </div> 
+                `;
 
-            html = htmlHead + getNavBar(token) + form + htmlEnd
-            res.send(html)
+                html = htmlHead + getNavBar(token) + form + htmlEnd
+                res.send(html)
             }
 
 
@@ -471,8 +470,6 @@ const ProductController = {
 
         }
     }
-
-
 }
 
 module.exports = {

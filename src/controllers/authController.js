@@ -1,8 +1,6 @@
-const {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } = require("firebase/auth");
-const fireBaseApp = require('../config/firebase');
+const { signInWithEmailAndPassword, createUserWithEmailAndPassword } = require("firebase/auth");
 
-const auth = getAuth(fireBaseApp);
-
+//signIn función para loguearse en la web
 const signIn = async (auth, email, password) =>{
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -15,6 +13,8 @@ const signIn = async (auth, email, password) =>{
     }
 }
 
+
+//signUp función para registrase en la web
 const singUp = async (auth, email, password) =>{
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password)
