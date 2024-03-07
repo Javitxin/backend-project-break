@@ -1,6 +1,6 @@
 # Tienda de ropa
 
-En esta documentación vamos a explicar el funcionamiento de la tienda de ropa, las tecnologías usadas, endpoints, etc.
+En esta documentación se explica el funcionamiento de la tienda de ropa, las tecnologías usadas, endpoints, etc.
 
 ## Índice
 
@@ -52,11 +52,11 @@ En este apartado de la web, nos muestra solo los productos por accesorios que ex
 
 #### Login
 
-En este apartado tienes la opción de logearte en la web para poder acceder a ella con las funciones de administrador y así poder utilizar todas las opciones de Crear, buscar, modificar y borrar los artículos de la tienda.
+En este apartado tienes la opción de loguearte en la web para poder acceder a ella con las funciones de administrador y así poder utilizar todas las opciones de Crear, buscar, modificar y borrar los artículos de la tienda.
 
 #### La web Logeado
 
-Cuando cliques en la opción de login, te saldrá una pantalla donde deberas introducir tu Usuário y contraseña de administrador de la web, esa pantalla comprueba que la información sea correcta, para poder entrar como administrador.
+Cuando cliques en la opción de login, te saldrá una pantalla donde deberas introducir tu Usuario y contraseña de administrador de la web, esa pantalla comprueba que la información sea correcta, para poder entrar como administrador.
 Una vez logeado te aparece una web con una barra de navegación arriba con; Productos, Camisetas, Pantalones, Zapatos, Accesorios, Nuevo  Producto y Logout.
 
 #### Logeado Productos
@@ -78,7 +78,7 @@ Una vez de clicar en la opción de la barra de menus, Nuevo Producto, nos aparec
 
 #### Opción Logout
 
-Una clicado esta opción, simplemente cerrará la sesón del usuario que estemos usando y nos llevará a la pagina principal de la web que es solo de consulta.
+Una clicado esta opción, simplemente cerrará la sesión del usuario que estemos usando y nos llevará a la pagina principal de la web que es solo de consulta.
 
 ## Tecnologias usadas
 
@@ -93,7 +93,6 @@ Estas son las tecnologías o recursos utilizados para nuestra web.
 - [express.urlencoded](#express.urlencoded)
 - [express.static](#express.static)
 - [Template literals](#Template-literals)
-- [Pug](#Pug)
 - [Firebase](#firebase)
   - [Firebase Auth](#firebase-Auth)
   - [Get Started with Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start)
@@ -184,17 +183,6 @@ Qué es Template-literals:
 Cadenas literales que habilitan el uso de expresiones incrustadas. Con ellas, es posible utilizar cadenas de caracteres de más de una línea, y funcionalidades de interpolación de cadenas de caracteres.
 Para más información (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-### Pug
-
-Qué es Pug:
-
-Es un motor de plantillas de NodeJS que nos permite preprocesar código HTML de una manera más rápida y sencilla. 
-
-Instalación de Pug.
-```
-npm install pug
-```
-Para más información (https://pugjs.org/api/getting-started.html)
 
 ### firebase
 
