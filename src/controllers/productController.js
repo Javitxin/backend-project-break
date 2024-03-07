@@ -105,7 +105,7 @@ const ProductController = {
             res.send(html);
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de busqueda de productos')
+            res.status(500).send(htmlHead + getNavBar(token)+ '<h2>error de busqueda de productos</h2>' + htmlEnd)
         }
     },
     async showProductById(req, res) {
@@ -124,7 +124,7 @@ const ProductController = {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de busqueda de producto por ID')
+            res.status(500).send(htmlHead + getNavBar(token)+ '<h2>error de busqueda de producto por ID</h2>' + htmlEnd)
         }
     },
     async showNewProduct(req, res) {
@@ -172,7 +172,7 @@ const ProductController = {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de articulo nuevo')
+            res.status(500).send(htmlHead + getNavBar(token)+ '<h2>error de articulo nuevo</h2>' + htmlEnd)
         }
     },
     async showProductCategory(req, res) {
@@ -186,7 +186,7 @@ const ProductController = {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de articulo nuevo')
+            res.status(500).send(htmlHead + getNavBar(token)+ '<h2>error de articulo nuevo</h2>' +htmlEnd)
         }
 
     },
@@ -272,7 +272,7 @@ const ProductController = {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de edicion articulo nuevo')
+            res.status(500).send(htmlHead + getNavBar(token) + '<h2>error de edicion articulo nuevo</h2>'+ htmlEnd)
         }
     },
 
@@ -293,7 +293,7 @@ const ProductController = {
                 size: pBody.size
             }, { new: true })
             if (!updateProduct) {
-                return res.status(404).json({ mensaje: 'Product id not found' })
+                return res.status(404).send(htmlHead + getNavBar(token)+ '<h2>Product id not found</h2>' + htmlEnd)
             }
 
             res.redirect(`${idProduct}`)
@@ -302,7 +302,7 @@ const ProductController = {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send('error de actualización articulo')
+            res.status(500).send(htmlHead + getNavBar(token)+ '<h2>error de actualización articulo</h2>' + htmlEnd)
         }
     },
     async deleteProduct(req, res) {
@@ -320,7 +320,7 @@ const ProductController = {
         }
 
         } catch (error) {
-            res.status(500).send('error de eliminacion articulo')
+            res.status(500).send( htmlHead + getNavBar(token)+ '<h2>error de eliminacion articulo</h2>' + htmlEnd)
         }
     },
     async login(req, res) {

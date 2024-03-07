@@ -8,7 +8,8 @@ function generateToken(user){
 const authenticate = async (req, res, next) =>{
     const token = req.session.token;
     if(!token){
-        return res.status(401).json({mensaje:'token no generado'});
+        console.log('token no generado')
+        return res.status(401).send('<h2>Error de Acceso<h2><a href="/">Volver</a>');
     }
     jwt.verify(token, hashedSecret, (err, decoded)=>{
         if(err){
